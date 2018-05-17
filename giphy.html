@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy Assignment</title>
+</head>
+
+<body>
+  <button data-fruit="apple">apple</button>
+  <button data-fruit="banana">banana</button>
+  <button data-fruit="mango">mango</button>
+  <button data-fruit="pineapple">pineapple</button>
+  <button data-fruit="cherry">cherry</button>
+  <button data-fruit="kiwi">kiwi</button>
+  <button data-fruit="pear">pear</button>
+  <button data-fruit="plum">plum</button>
+  <button data-fruit="papaya">papaya</button>
+  <button data-fruit="peach">peach</button>
+  <button data-fruit="lime">lime</button>
+  <button data-fruit="lemon">lemon</button>
+  <button data-fruit="avocado">avocado</button>
+  <button data-fruit="orange">orange</button>
+  <button data-fruit="watermelon">watermelon</button>
+  
+
+  <div id="gifs-appear-here">
+  </div>
+  <link rel="stylesheet" href="assets\reset.css">
+    <link rel="stylesheet" href="assets\style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $("button").on("click", function() {
+      var fruit = $(this).attr("data-fruit");
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        fruit + "&api_key=11sIyDJJvHhuDRQcPU5acLQq0mPjhdRw&limit=10";
+
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+
+        var results = response.data;
+
+        for (var i = 0; i < results.length; i++) {
+            var fruitDiv = $("<div class='item'>");
+
+            var rating = results[i].rating;
+
+            var p = $("<p>").text("Rating: " + rating);
+
+            var fruitImage = $("<img>");
+            fruitImage.attr("src", results[i].images.fixed_height.url);
+
+            fruitDiv.prepend(p);
+            fruitDiv.prepend(fruitImage);
+
+            $("#gifs-appear-here").prepend(fruitDiv);
+          }
+        });
+    });
+
+
+  </script>
+</body>
+
+</html>
