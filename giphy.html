@@ -22,13 +22,44 @@
   <button data-fruit="avocado">avocado</button>
   <button data-fruit="orange">orange</button>
   <button data-fruit="watermelon">watermelon</button>
-  
+  <br>
+  <br>
 
-  <div id="gifs-appear-here">
+  <form role="form">
+      <div class="form-group row">
+        <label for="search-input">Add a Fruit:</label>
+        <input class="form-control" id="search-input" type="text">
+      </div>
+
+  <function showButtons()  {
+    <$("fruitDiv").empty();>
+        <var button = $("<button>");>
+        <button.addClass("fruitDiv");>
+        <button.attr("fruitDiv", fruit[i]);>
+        <button.text(fruit[i]);>
+        $("button").click(function(){
+        $("#search-input").append(button);
+    }
+}
+<showButtons()>
+
+<function fruitDiv(){
+    <fruit = $("#gifsbox").val();>
+    <topics.push(gifsbox);>
+    <showButtons()>
+}
+
+$('#search-input').on('click', function(event){
+    <event.preventDefault();>
+   <fruitDiv()>
+})
+
+  <div id="gifsbox">
   </div>
   <link rel="stylesheet" href="assets\reset.css">
     <link rel="stylesheet" href="assets\style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>>
   <script type="text/javascript">
     $("button").on("click", function() {
       var fruit = $(this).attr("data-fruit");
@@ -55,7 +86,8 @@
             fruitDiv.prepend(p);
             fruitDiv.prepend(fruitImage);
 
-            $("#gifs-appear-here").prepend(fruitDiv);
+            $("#gifsbox").prepend(fruitDiv);
+            
           }
         });
     });

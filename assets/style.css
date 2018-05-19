@@ -1,4 +1,13 @@
 button{
     background-color: rgb(18, 134, 134);
-    text: black;
+    font: white;
+    padding: 2px;
+}
+
+form{
+    float: right;
+}
+
+#gifsbox{
+    float: left;
 }
